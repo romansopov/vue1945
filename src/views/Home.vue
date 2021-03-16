@@ -16,14 +16,16 @@
           valueType="format"
           confirm
           width="100%"
-          :placeholder="period"
         ></date-picker>
       </div>
 
       <input type="submit" class="send" value="Send" />
-        <div id="info">
-          {{ info }}
-        </div>
+      <div id="info">
+        {{ info }}
+      </div>
+      <div id="tableunit">
+        <tableunit></tableunit>
+      </div>
     </form>
   </div>
 </template>
@@ -32,24 +34,33 @@
 import DatePicker from "vue2-datepicker";
 import "vue2-datepicker/index.css";
 import "vue2-datepicker/locale/ru";
-import axios from "axios";
+//import axios from "axios";
+//import Vuetify from 'vuetify';
+
+
+import tableunit from "@/components/TableUnit.vue";
 
 export default {
-  components: { DatePicker },
+  components: { DatePicker,tableunit },
   data() {
     return {
       //period: [new Date(String('08-01-2019')), new Date(String('08-30-2019'))],
       //period: [new Date(2019, 7, 1), new Date(2019, 7, 30)],
       period: [],
       unit: "2345",
+      info: "",
+      tableunit: this.tableunit
     };
   },
   methods: {
     sendData() {
-      console.log(this.unit, this.period);
-      axios
-        .get("https://api.coindesk.com/v1/bpi/currentprice.json")
-        .then((response) => (this.info = response));
+      console.log(this.unit, this.period, this.tableunit);
+      this.tableunit = "time";
+      //this.TableUnit= TableUnit;
+/*       axios
+        .get("http://localhost:8000/unit/:rdf/:dd")
+        .then((response) => (this.info = "response"));
+ */        
     },
   },
 
@@ -58,8 +69,6 @@ export default {
       new Date(String("01-01-1939")),
       new Date(String("12-31-1946")),
     ];
-    //this.$refs.datePicker.placeholder = [new Date(String('01-01-1939')), new Date(String('12-31-1946'))];
-    //this.value = [new Date(String('08-01-2019')), new Date(String('08-30-2019'))];
   },
 };
 </script>
