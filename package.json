@@ -10,12 +10,14 @@
   "dependencies": {
     "axios": "^0.21.1",
     "core-js": "^3.9.1",
+    "vue": "^2.6.12",
     "vue-router": "^3.5.1",
     "vue2-datepicker": "^3.9.0",
     "vuetify": "^2.4.6"
   },
   "devDependencies": {
     "@vue/cli-plugin-router": "~4.5.11",
+    "@vue/cli-service": "^4.5.12",
     "babel-eslint": "^10.1.0",
     "eslint-plugin-vue": "^7.7.0",
     "vue-template-compiler": "^2.6.12"
